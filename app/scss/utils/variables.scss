@@ -1,0 +1,17 @@
+$font-stack: 'Lato', 'Arial', sans-serif;
+
+/**
+ * Vertical Rhythm, which is used throughout the code.
+ * @type Length
+ */
+$vertical-rhythm-baseline: 1.5rem;
+
+
+/**
+ * Variables for mixin respond-to
+ */
+$breakpoints: (
+        'medium': (min-width: 800px),
+        'large': (min-width: 1000px),
+        'huge': (min-width: 1200px),
+);

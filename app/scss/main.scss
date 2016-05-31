@@ -3,15 +3,16 @@
 @import "utils/mixins";
 @import "utils/variables";
 
-@import "layout/footer";
 @import "layout/grid";
 @import "layout/navigation";
+@import "layout/footer";
 
 @import 'base/normalize';
 @import "base/typography";
 
 @import "components/buttons";
 @import "components/cover";
+@import "components/icons";
 
 @import "pages/home";
 @import "pages/works";

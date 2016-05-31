@@ -77,7 +77,56 @@
       @content;
     }
   } @else {
-      @warn "Couldn't find a breakpoint named `#{$name}`.";
+    @warn "Couldn't find a breakpoint named `#{$name}`.";
   }
+}
+
+/**
+ * the sticky footer mixin
+ **/
+@mixin sticky-footer($footer-height, $wrapper-selector, $container-selector, $footer-selector) {
+  html, body {
+    height: 100%;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  #{$wrapper-selector} {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: -$footer-height;
+    #{$container-selector} {
+      padding: 0 0 $footer-height 0;
+    }
+  }
+  #{$footer-selector} {
+    height: $footer-height;
+  }
+}
+
+/**
+ * Positioning blocks on the page
+ */
+@mixin center-block() {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin center-inline() {
+  display: inline;
+  text-align: center;
+}
+
+/// Left alignment
+@mixin left-block() {
+  float: left;
+}
+
+/// Right alignment
+@mixin right-block() {
+  float: right;
 }
 

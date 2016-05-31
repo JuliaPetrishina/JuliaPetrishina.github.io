@@ -1,11 +1,14 @@
+$main-color: #40b946;
+$second-color: #e2973c;
+
 $font-stack: 'Lato', 'Arial', sans-serif;
+$font-second-color: white;
 
 /**
  * Vertical Rhythm, which is used throughout the code.
  * @type Length
  */
 $vertical-rhythm-baseline: 1.5rem;
-
 
 /**
  * Variables for mixin respond-to

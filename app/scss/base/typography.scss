@@ -1,0 +1,15 @@
+@import "../utils/variables";
+
+body {
+  font-family: $font-stack;
+  color: $font-second-color;
+}
+
+/**
+ * Correct the margin on `headers` elements to avoid unexpected gaps
+ *
+ */
+
+h1, h2, h3, h4, h5, h6{
+  margin: 0;
+}

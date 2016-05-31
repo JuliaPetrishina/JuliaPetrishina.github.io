@@ -1,0 +1,35 @@
+@import "../utils/mixins";
+
+/**
+ * the sticky footer implementation
+ **/
+@include sticky-footer(130px, '.wrap', '.inner-wrap', '.footer');
+
+.footer {
+
+  .btn-group {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+}
+
+.social {
+  text-align: center;
+
+  .social-title{
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  ul {
+    display: inline-block;
+    list-style: none;
+    padding: 0; // reset -webkit-padding-start: 40px;
+
+    li{
+      float: left;
+      width: 20px;
+    }
+  }
+}

@@ -11,9 +11,9 @@
 /// Helper to reset the internal flow
 /// @author Николас Галлагер
 /// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
-//  Usage example .selector {@extend %clearfix;}
+//  Usage example .selector {@include clearfix;}
 @mixin clearfix {
-  &::after {
+  &:after {
     content: '';
     display: table;
     clear: both;

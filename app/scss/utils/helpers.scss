@@ -1,0 +1,11 @@
+/**
+ * Helper class to trim and add dots in an overly long string
+ * on the same line.
+ * 1. Prevents folding contents, leave it on one line.
+ * 2.  Add a dot at the end of the line.
+ */
+.ellipsis {
+  white-space: nowrap; /* 1 */
+  text-overflow: ellipsis; /* 2 */
+  overflow: hidden;
+}

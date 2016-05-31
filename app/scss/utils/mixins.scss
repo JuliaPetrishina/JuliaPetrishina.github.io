@@ -1,0 +1,82 @@
+@import "variables";
+
+/// Mixin to provide a simple API nesting
+/// @param {String} $selector - Selector
+@mixin when-inside($selector) {
+  #{$selector} & {
+    @content;
+  }
+}
+
+/// Helper to reset the internal flow
+/// @author Николас Галлагер
+/// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/// Helper to determine the size
+/// Example usage: .element {@include size (100%, 1px)};
+/// Output: .element {width: 100%; height: 1px}
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/// Positioning helper
+/// Example usage .element {@include absolute (top 0 left 1em)
+/// Output .element {position: absolute; top: 0; left: 1em;}
+
+@mixin position($position, $args) {
+  @each $o in top right bottom left {
+    $i: index($args, $o);
+
+    @if $i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number {
+      #{$o}: nth($args, $i + 1);
+    }
+  }
+
+  position: $position;
+}
+
+@mixin absolute($args) {
+  @include position("absolute", $args);
+}
+
+@mixin fixed($args) {
+  @include position("fixed", $args);
+}
+
+@mixin relative($args) {
+  @include position("relative", $args);
+}
+
+/// Responsive handling.
+/// @access public
+/// @param {String} $breakpoint - точка остановки
+/// @requires $breakpoints
+
+/**
+ * example usage
+ * .element {
+ *   color: red;
+ *
+ *   @include breakpoint(medium) {
+ *     color: blue;
+ *   }
+ * }
+ */
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  } @else {
+      @warn "Couldn't find a breakpoint named `#{$name}`.";
+  }
+}
+

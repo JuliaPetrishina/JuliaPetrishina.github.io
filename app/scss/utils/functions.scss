@@ -1,0 +1,17 @@
+/// A little to lighten the color
+/// @access public
+/// @param {Color} $color - color for lightening
+/// @param {Number} $percentage - % in `$color` in the returned color
+/// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+/// A little to darken the color
+/// @access public
+/// @param {Color} $color - color for darkening
+/// @param {Number} $percentage - % in `$color` in the returned color
+/// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

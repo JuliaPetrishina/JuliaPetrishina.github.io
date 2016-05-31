@@ -13,7 +13,8 @@ const gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     concat = require('gulp-concat'),
     moduleImporter = require('sass-module-importer'),
-    scsslint = require('gulp-scss-lint');
+    scsslint = require('gulp-scss-lint'),
+    fontAwesome = require('node-font-awesome');
 
 gulp.task('sass', () => {
     return gulp.src('app/scss/main.scss')
@@ -69,6 +70,11 @@ gulp.task('images', () => {
 
 gulp.task('cache:clear', (callback) => {
     return cache.clearAll(callback);
+});
+
+gulp.task('fontsAwesome', function() {
+    gulp.src(fontAwesome.fonts)
+        .pipe(gulp.dest('./app/fonts'));
 });
 
 gulp.task('fonts', () => {

@@ -1,7 +1,7 @@
 @import "../utils/mixins";
 
 .home-page {
-  background: $main-color url("../../images/home-cover.jpeg") center center no-repeat fixed;
+  background: $main-color url("../images/home-cover.jpeg") center center no-repeat fixed; // ToDo resolve urls
   background-size: cover;
   width: 100%;
   max-width: 100%;

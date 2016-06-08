@@ -24,7 +24,7 @@
  * .element {
  *   color: red;
  *
- *   @include breakpoint(medium) {
+ *   @include respond-to(medium) {
  *     color: blue;
  *   }
  * }
@@ -42,6 +42,36 @@
 /**
  * Variables for mixin respond-to
  */
+/**
+ * Vertical Rhythm, which is used throughout the code.
+ * @type Length
+ */
+/**
+ * Variables for mixin respond-to
+ */
+/**
+ * Vertical Rhythm, which is used throughout the code.
+ * @type Length
+ */
+/**
+ * Variables for mixin respond-to
+ */
+/**
+ * example usage
+ * .element {
+ *   color: red;
+ *
+ *   @include respond-to(medium) {
+ *     color: blue;
+ *   }
+ * }
+ */
+/**
+ * the sticky footer mixin
+ **/
+/**
+ * Positioning blocks on the page
+ */
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -56,6 +86,34 @@
     display: block;
     clear: both; }
 
+.masonry-layout {
+  column-count: 3;
+  column-gap: 1em; }
+  @media (max-width: 800px) {
+    .masonry-layout {
+      column-count: 2; } }
+  @media (max-width: 400px) {
+    .masonry-layout {
+      column-count: 1; } }
+  .masonry-layout .masonry-layout_item {
+    display: inline-block;
+    background-color: white;
+    margin: 0 0 1em;
+    width: 100%; }
+  .masonry-layout .masonry-layout_image {
+    max-width: 100%;
+    display: block; }
+  .masonry-layout .masonry-layout_description {
+    min-height: 100px;
+    padding: 1em;
+    color: white; }
+    .masonry-layout .masonry-layout_description.masonry-layout_description__crimson {
+      background-color: #cc0d34; }
+    .masonry-layout .masonry-layout_description.masonry-layout_description__cornflower-blue {
+      background-color: #6195ed; }
+    .masonry-layout .masonry-layout_description.masonry-layout_description__burnt-sienna {
+      background-color: #ef7069; }
+
 /**
  * Vertical Rhythm, which is used throughout the code.
  * @type Length
@@ -68,7 +126,7 @@
  * .element {
  *   color: red;
  *
- *   @include breakpoint(medium) {
+ *   @include respond-to(medium) {
  *     color: blue;
  *   }
  * }
@@ -2752,7 +2810,7 @@ h1, h2, h3, h4, h5, h6 {
  * .element {
  *   color: red;
  *
- *   @include breakpoint(medium) {
+ *   @include respond-to(medium) {
  *     color: blue;
  *   }
  * }

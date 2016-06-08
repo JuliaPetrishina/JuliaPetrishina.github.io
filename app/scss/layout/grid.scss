@@ -1,4 +1,6 @@
 @import "../../../node_modules/susy/sass/susy";
+@import "../utils/variables";
+@import "../utils/mixins";
 
 /// Changing Susy default global settings
 $susy: (
@@ -13,11 +15,56 @@ $susy: (
 /// Makes border-box properties
 @include border-box-sizing;
 
-
 /// Using the container mixin to create the container for the website
 //  whenever you use Susy.
 .wrap {
   @include container;
+}
+
+/// CSS-only Responsive Masonry
+
+.masonry-layout {
+  column-count: 3;
+  column-gap: 1em;
+
+  @include respond-to(medium) {
+    column-count: 2;
+  }
+
+  @include respond-to(small) {
+    column-count: 1;
+  }
+
+  .masonry-layout_item {
+    display: inline-block;
+    background-color: white;
+    margin: 0 0 1em;
+    width: 100%;
+  }
+
+  .masonry-layout_image {
+    max-width: 100%;
+    display: block;
+  }
+
+  .masonry-layout_description{
+    min-height: 100px;
+    padding: 1em;
+    color: $font-second-color;
+
+    /// modifier for background color of description block
+    &.masonry-layout_description__crimson{
+      background-color: $crimson;
+    }
+
+    &.masonry-layout_description__cornflower-blue{
+      background-color: $cornflower-blue;
+    }
+
+    &.masonry-layout_description__burnt-sienna{
+      background-color: $burnt-sienna;
+    }
+  }
 }
 
 

@@ -9,7 +9,7 @@
 }
 
 /// Helper to reset the internal flow
-/// @author Николас Галлагер
+/// @author Nicolas Gallagher
 /// @link http://nicolasgallagher.com/micro-clearfix-hack/ Micro Clearfix
 //  Usage example .selector {@include clearfix;}
 @mixin clearfix {
@@ -120,6 +120,11 @@
   text-align: center;
 }
 
+@mixin center-inline-block() {
+  display: inline-block;
+  text-align: center;
+}
+
 /// Left alignment
 @mixin left-block() {
   float: left;
@@ -129,4 +134,3 @@
 @mixin right-block() {
   float: right;
 }
-

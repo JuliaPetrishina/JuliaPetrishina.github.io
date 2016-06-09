@@ -7,7 +7,7 @@ $susy: (
   /// Tells Susy to use 12 columns
         columns: 12,
   /// Tells Susy that the container has a max-width of 1120px
-        container: 1120px,
+        container: 900px,
   /// Tells Susy to use border-box
         global-box-sizing: border-box
 );
@@ -24,15 +24,15 @@ $susy: (
 /// CSS-only Responsive Masonry
 
 .masonry-layout {
-  column-count: 3;
+  column-count: 4;
   column-gap: 1em;
 
   @include respond-to(medium) {
-    column-count: 2;
+    column-count: 3;
   }
 
   @include respond-to(small) {
-    column-count: 1;
+    column-count: 2;
   }
 
   .masonry-layout_item {
@@ -40,21 +40,26 @@ $susy: (
     background-color: white;
     margin: 0 0 1em;
     width: 100%;
+    box-shadow: 0 1px 0 0 #e1e2e6, 0 0 0 1px #e6e7eb;
   }
 
   .masonry-layout_image {
     max-width: 100%;
+    width: 100%;
     display: block;
   }
 
   .masonry-layout_description{
-    min-height: 100px;
+    min-height: 250px;
     padding: 1em;
     color: $font-second-color;
 
     /// modifier for background color of description block
     &.masonry-layout_description__crimson{
       background-color: $crimson;
+    }
+    &.masonry-layout_description__alizarin-crimson {
+      background-color: $alizarin-crimson;
     }
 
     &.masonry-layout_description__cornflower-blue{
@@ -63,6 +68,14 @@ $susy: (
 
     &.masonry-layout_description__burnt-sienna{
       background-color: $burnt-sienna;
+    }
+
+    &.masonry-layout_description__emperor {
+      background-color: $emperor;
+    }
+
+    &.masonry-layout_description__chestnut-rose {
+      background-color: $chestnut-rose;
     }
   }
 }

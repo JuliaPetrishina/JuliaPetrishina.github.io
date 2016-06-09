@@ -1,0 +1,9 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+.headers-block{
+  @include center-inline-block();
+  margin: 50px 0;
+  width: 100%;
+
+}

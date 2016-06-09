@@ -108,7 +108,18 @@
   .masonry-layout .masonry-layout_description {
     min-height: 250px;
     padding: 1em;
-    color: white; }
+    color: white;
+    text-transform: uppercase;
+    font-size: 12px;
+    position: relative; }
+    .masonry-layout .masonry-layout_description .masonry-layout_link {
+      right: 1em;
+      bottom: 1em;
+      position: absolute;
+      color: white;
+      text-decoration: none; }
+    .masonry-layout .masonry-layout_description .masonry-layout_icon {
+      margin-right: 0.25em; }
     .masonry-layout .masonry-layout_description.masonry-layout_description__crimson {
       background-color: #cc0d34; }
     .masonry-layout .masonry-layout_description.masonry-layout_description__alizarin-crimson {

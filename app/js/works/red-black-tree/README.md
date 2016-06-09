@@ -1,4 +1,4 @@
-#Red-Black tree implementation
+#Red-Black Tree Implementation
  
 ###How it should work.
 

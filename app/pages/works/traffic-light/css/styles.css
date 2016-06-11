@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+}
+
+.traffic-light-holder{
+    width: 70px;
+    margin: 0 auto;
+
+}
+
+.traffic-light-holder div{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 5px solid #000;
+    color: #000;
+    position: relative;
+}
+
+.traffic-light-holder div ~ div{
+    margin-top: 10px;
+}
+
+.traffic-light-holder div span{
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    left: 24px;
+}
+
+.red.on{
+    background-color: red;
+}
+
+.yellow.on{
+    background-color: yellow;
+}
+
+.green.on{
+    background-color: green;
+}

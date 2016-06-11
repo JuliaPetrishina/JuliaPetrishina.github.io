@@ -1,9 +1,17 @@
 @import '../utils/variables';
 @import '../utils/mixins';
 
-.headers-block{
-  @include center-inline-block();
-  margin: 50px 0;
-  width: 100%;
+.works-page{
+  background-color: #efefef;
+  .headers-block{
+    @include center-inline-block();
+    margin: 50px 0;
+    width: 100%;
 
+    h1, h2{
+      text-transform: uppercase;
+    }
+  }
 }
+
+

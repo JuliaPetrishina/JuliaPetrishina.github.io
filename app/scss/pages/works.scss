@@ -3,6 +3,11 @@
 
 .works-page{
   background-color: #efefef;
+
+  .wrap{
+    padding-top:50px;
+  }
+
   .headers-block{
     @include center-inline-block();
     margin: 50px 0;
@@ -10,6 +15,11 @@
 
     h1, h2{
       text-transform: uppercase;
+      font-weight:400;
+    }
+
+    h3{
+      font-weight:400;
     }
   }
 }

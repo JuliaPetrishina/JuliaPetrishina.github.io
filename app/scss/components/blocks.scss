@@ -1,4 +1,5 @@
 @import "../utils/variables";
+@import "../utils/mixins";
 
 .block-tags {
   .block-tags_item {
@@ -8,4 +9,30 @@
   .block-tags_icon {
     margin-right: 0.25em;
   }
+}
+
+.block-nav{
+  @include center-block();
+  @include fixed (top 0 left 0);
+  z-index: 10;
+  background-color: $burnt-sienna;
+  text-align: center;
+  width:100%;
+
+  .block-nav_list{
+    list-style: none;
+    margin: 0;
+  }
+
+  .block-nav_item{
+    @include center-inline-block();
+    padding: 1em;
+  }
+
+  .block-nav_link{
+    color: $font-second-color;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
 }

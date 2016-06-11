@@ -114,7 +114,8 @@
     position: relative; }
     .masonry-layout .masonry-layout_description .masonry-layout_text {
       border-bottom: 1px dashed white;
-      padding-bottom: 2em; }
+      padding-bottom: 2em;
+      word-spacing: 2px; }
     .masonry-layout .masonry-layout_description .masonry-layout_link {
       right: 1em;
       bottom: 1em;
@@ -589,6 +590,11 @@ h1, h2, h3, h4, h5, h6 {
 /**
  * Variables for mixin respond-to
  */
+.btn-group__header {
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  font-weight: 400; }
+
 .btn {
   border: none;
   border-radius: 2px;
@@ -608,7 +614,7 @@ h1, h2, h3, h4, h5, h6 {
   transition: .2s ease-out;
   cursor: pointer; }
   .btn:hover {
-    background-color: #40b946; }
+    background-color: #d28323; }
 
 .btn_wave-effect {
   position: relative;
@@ -2827,11 +2833,57 @@ h1, h2, h3, h4, h5, h6 {
 /**
  * Variables for mixin respond-to
  */
+/**
+ * Vertical Rhythm, which is used throughout the code.
+ * @type Length
+ */
+/**
+ * Variables for mixin respond-to
+ */
+/**
+ * example usage
+ * .element {
+ *   color: red;
+ *
+ *   @include respond-to(medium) {
+ *     color: blue;
+ *   }
+ * }
+ */
+/**
+ * the sticky footer mixin
+ **/
+/**
+ * Positioning blocks on the page
+ */
 .block-tags .block-tags_item {
   padding: 0 0.25em; }
 
 .block-tags .block-tags_icon {
   margin-right: 0.25em; }
+
+.block-nav {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 10;
+  background-color: #ef7069;
+  text-align: center;
+  width: 100%; }
+  .block-nav .block-nav_list {
+    list-style: none;
+    margin: 0; }
+  .block-nav .block-nav_item {
+    display: inline-block;
+    text-align: center;
+    padding: 1em; }
+  .block-nav .block-nav_link {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none; }
 
 /**
  * Vertical Rhythm, which is used throughout the code.
@@ -2901,11 +2953,12 @@ h1, h2, h3, h4, h5, h6 {
  */
 .home-page {
   background: #40b946 url("../images/home-cover.jpeg") center center no-repeat fixed;
-  background-size: cover;
+  background-size: contain;
   width: 100%;
   max-width: 100%;
   height: 100%;
-  font-weight: 400; }
+  font-weight: 400;
+  color: white; }
 
 .hgroup {
   display: inline;
@@ -2915,11 +2968,6 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 20px; }
   .hgroup h2 {
     font-weight: 300; }
-
-.social:after {
-  content: '';
-  display: table;
-  clear: both; }
 
 /**
  * Vertical Rhythm, which is used throughout the code.
@@ -2951,8 +2999,17 @@ h1, h2, h3, h4, h5, h6 {
 /**
  * Positioning blocks on the page
  */
-.headers-block {
-  display: inline-block;
-  text-align: center;
-  margin: 50px 0;
-  width: 100%; }
+.works-page {
+  background-color: #efefef; }
+  .works-page .wrap {
+    padding-top: 50px; }
+  .works-page .headers-block {
+    display: inline-block;
+    text-align: center;
+    margin: 50px 0;
+    width: 100%; }
+    .works-page .headers-block h1, .works-page .headers-block h2 {
+      text-transform: uppercase;
+      font-weight: 400; }
+    .works-page .headers-block h3 {
+      font-weight: 400; }

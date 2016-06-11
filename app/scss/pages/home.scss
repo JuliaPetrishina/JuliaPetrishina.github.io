@@ -2,11 +2,12 @@
 
 .home-page {
   background: $main-color url("../images/home-cover.jpeg") center center no-repeat fixed; // ToDo resolve urls
-  background-size: cover;
+  background-size: contain;
   width: 100%;
   max-width: 100%;
   height: 100%; // set height to page for sticky footer
   font-weight: 400;
+  color: $font-second-color;
 }
 
 .hgroup {
@@ -20,8 +21,4 @@
   h2{
     font-weight: 300;
   }
-}
-
-.social {
-  @include clearfix;
 }

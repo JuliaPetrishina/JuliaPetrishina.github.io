@@ -112,6 +112,9 @@
     text-transform: uppercase;
     font-size: 12px;
     position: relative; }
+    .masonry-layout .masonry-layout_description .masonry-layout_text {
+      border-bottom: 1px dashed white;
+      padding-bottom: 2em; }
     .masonry-layout .masonry-layout_description .masonry-layout_link {
       right: 1em;
       bottom: 1em;
@@ -2816,6 +2819,62 @@ h1, h2, h3, h4, h5, h6 {
  */
 .fa {
   color: white; }
+
+/**
+ * Vertical Rhythm, which is used throughout the code.
+ * @type Length
+ */
+/**
+ * Variables for mixin respond-to
+ */
+.block-tags .block-tags_item {
+  padding: 0 0.25em; }
+
+.block-tags .block-tags_icon {
+  margin-right: 0.25em; }
+
+/**
+ * Vertical Rhythm, which is used throughout the code.
+ * @type Length
+ */
+/**
+ * Variables for mixin respond-to
+ */
+/**
+ * Vertical Rhythm, which is used throughout the code.
+ * @type Length
+ */
+/**
+ * Variables for mixin respond-to
+ */
+/**
+ * example usage
+ * .element {
+ *   color: red;
+ *
+ *   @include respond-to(medium) {
+ *     color: blue;
+ *   }
+ * }
+ */
+/**
+ * the sticky footer mixin
+ **/
+/**
+ * Positioning blocks on the page
+ */
+.block-links {
+  right: 1em;
+  bottom: 1em;
+  position: absolute; }
+  .block-links .block-links_item {
+    text-decoration: none; }
+  .block-links .block-links_icon {
+    margin-right: 0.25em; }
+  .block-links.block-links__white .block-links_item {
+    color: white; }
+    .block-links.block-links__white .block-links_item ~ .block-links_item {
+      margin-left: 1em; }
 
 /**
  * Vertical Rhythm, which is used throughout the code.

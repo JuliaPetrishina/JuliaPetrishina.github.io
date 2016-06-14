@@ -51,7 +51,7 @@ gulp.task('scss-lint', function() {
 });
 
 gulp.task('useref', () => {
-    return gulp.src('app/*.html')
+    return gulp.src('app/**/*.html')
         .pipe(useref())
         .pipe(gulpIf('*.js', uglify()))
         // Minifies only if it's a CSS file
@@ -88,8 +88,8 @@ gulp.task('clean:dist', () => {
 
 gulp.task('watch', ['browserSync', 'sass'], () => {
     gulp.watch('app/scss/**/*.scss', ['sass']);
-    gulp.watch('app/*.html', browserSync.reload);
-    gulp.watch('app/js/**/*.js', browserSync.reload);
+    gulp.watch('app/**/*.html', browserSync.reload);
+    gulp.watch('app/**/*.js', browserSync.reload);
 });
 
 gulp.task('build', (callback) => {

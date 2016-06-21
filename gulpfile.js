@@ -14,7 +14,10 @@ const gulp = require('gulp'),
     concat = require('gulp-concat'),
     moduleImporter = require('sass-module-importer'),
     scsslint = require('gulp-scss-lint'),
-    fontAwesome = require('node-font-awesome');
+    fontAwesome = require('node-font-awesome'),
+    babel = require('gulp-babel'),
+    rebase = require('gulp-css-url-rebase');
+
 
 gulp.task('sass', () => {
     return gulp.src('app/scss/main.scss')
@@ -40,9 +43,12 @@ gulp.task('css', () => {
             browsers: ['last 2 versions'],
             cascade: false
         }))
+        .pipe(rebase())
+/*
         .pipe(concat('all.css'))
+*/
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('dist/css'))
+        .pipe(gulp.dest('../dist/css'))
 });
 
 gulp.task('scss-lint', function() {
@@ -53,10 +59,30 @@ gulp.task('scss-lint', function() {
 gulp.task('useref', () => {
     return gulp.src('app/**/*.html')
         .pipe(useref())
+/*
         .pipe(gulpIf('*.js', uglify()))
+*/
         // Minifies only if it's a CSS file
         .pipe(gulpIf('*.css', cssnano()))
         .pipe(gulp.dest('dist'))
+});
+
+gulp.task('transpile:js', () =>
+    gulp.src('app/pages/works/**/*.js')
+        .pipe(babel({
+            presets: ['es2015']
+        }))
+        .pipe(gulp.dest('app/temp/pages/works'))
+);
+
+gulp.task('compress:js', () =>
+    gulp.src('app/temp/**/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('dist'))
+);
+
+gulp.task('clean:temp', () => {
+    return del.sync('app/temp');
 });
 
 gulp.task('images', () => {
@@ -72,7 +98,7 @@ gulp.task('cache:clear', (callback) => {
     return cache.clearAll(callback);
 });
 
-gulp.task('fontsAwesome', function() {
+gulp.task('fontsAwesome', () => {
     gulp.src(fontAwesome.fonts)
         .pipe(gulp.dest('./app/fonts'));
 });
@@ -94,7 +120,7 @@ gulp.task('watch', ['browserSync', 'sass'], () => {
 
 gulp.task('build', (callback) => {
     runSequence('clean:dist',
-        ['sass', 'css', 'useref', 'images', 'fonts'],
+        ['sass', 'css', 'useref', 'transpile:js', 'compress:js', 'images', 'fonts'],
         callback
     )
 });

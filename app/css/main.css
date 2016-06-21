@@ -3023,7 +3023,7 @@ h1, h2, h3, h4, h5, h6 {
  * Positioning blocks on the page
  */
 .layout-home-page {
-  background: #40b946 url("../../images/home-cover.jpeg") center center no-repeat fixed;
+  background: #40b946 url("../images/home-cover.jpeg") center center no-repeat fixed;
   background-size: contain;
   width: 100%;
   max-width: 100%;

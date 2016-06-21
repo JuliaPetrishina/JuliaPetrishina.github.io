@@ -1,4 +1,6 @@
 @import "../utils/variables";
+@import "../utils/mixins";
+
 
 body {
   font-family: $font-stack;
@@ -12,4 +14,8 @@ body {
 
 h1, h2, h3, h4, h5, h6{
   margin: 0;
+}
+
+.block-hgroup {
+  @include center-inline;
 }

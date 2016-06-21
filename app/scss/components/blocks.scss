@@ -11,28 +11,58 @@
   }
 }
 
-.block-nav{
-  @include center-block();
-  @include fixed (top 0 left 0);
-  z-index: 10;
-  background-color: $burnt-sienna;
-  text-align: center;
-  width:100%;
+/// Tiles
+.block-tile_image {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+}
 
-  .block-nav_list{
-    list-style: none;
-    margin: 0;
+.block-tile_description{
+  min-height: 250px;
+  padding: 1em;
+  color: $font-second-color;
+  text-transform: uppercase;
+  font-size: 12px;
+  position: relative;
+
+  /// modifier for background color of description block
+  &.block-tile_description__crimson{
+    background-color: $crimson;
+  }
+  &.block-tile_description__alizarin-crimson {
+    background-color: $alizarin-crimson;
   }
 
-  .block-nav_item{
-    @include center-inline-block();
-    padding: 1em;
+  &.block-tile_description__cornflower-blue{
+    background-color: $cornflower-blue;
   }
 
-  .block-nav_link{
-    color: $font-second-color;
-    text-transform: uppercase;
-    text-decoration: none;
+  &.block-tile_description__burnt-sienna{
+    background-color: $burnt-sienna;
   }
 
+  &.block-tile_description__emperor {
+    background-color: $emperor;
+  }
+
+  &.block-tile_description__chestnut-rose {
+    background-color: $chestnut-rose;
+  }
+}
+
+.block-tile_text{
+  border-bottom: 1px dashed $font-second-color;
+  padding-bottom: 2em;
+  word-spacing: 2px;
+}
+
+.block-tile_link{
+  @include absolute(bottom 1em right 1em);
+  color: $font-second-color;
+  text-decoration: none;
+}
+
+.block-tile_icon{
+  margin-right: 0.25em;
 }

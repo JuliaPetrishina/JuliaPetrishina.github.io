@@ -17,14 +17,18 @@ $susy: (
 
 /// Using the container mixin to create the container for the website
 //  whenever you use Susy.
-.wrap {
+.layout-wrap {
   @include container;
 }
 
 /// CSS-only Responsive Masonry
 
-.masonry-layout {
+.layout-masonry {
+  -moz-column-count: 4;
+  -webkit-column-count: 4;
   column-count: 4;
+  -moz-column-gap: 1em;
+  -webkit-column-gap: 1em;
   column-gap: 1em;
 
   @include respond-to(medium) {
@@ -35,7 +39,7 @@ $susy: (
     column-count: 2;
   }
 
-  .masonry-layout_item {
+  .layout-masonry_item {
     display: inline-block;
     background-color: white;
     margin: 0 0 1em;
@@ -43,59 +47,6 @@ $susy: (
     box-shadow: 0 1px 0 0 #e1e2e6, 0 0 0 1px #e6e7eb;
   }
 
-  .masonry-layout_image {
-    max-width: 100%;
-    width: 100%;
-    display: block;
-  }
-
-  .masonry-layout_description{
-    min-height: 250px;
-    padding: 1em;
-    color: $font-second-color;
-    text-transform: uppercase;
-    font-size: 12px;
-    position: relative;
-
-    .masonry-layout_text{
-      border-bottom: 1px dashed $font-second-color;
-      padding-bottom: 2em;
-      word-spacing: 2px;
-    }
-
-    .masonry-layout_link{
-      @include absolute(bottom 1em right 1em);
-      color: $font-second-color;
-      text-decoration: none;
-    }
-
-    .masonry-layout_icon{
-      margin-right: 0.25em;
-    }
-    /// modifier for background color of description block
-    &.masonry-layout_description__crimson{
-      background-color: $crimson;
-    }
-    &.masonry-layout_description__alizarin-crimson {
-      background-color: $alizarin-crimson;
-    }
-
-    &.masonry-layout_description__cornflower-blue{
-      background-color: $cornflower-blue;
-    }
-
-    &.masonry-layout_description__burnt-sienna{
-      background-color: $burnt-sienna;
-    }
-
-    &.masonry-layout_description__emperor {
-      background-color: $emperor;
-    }
-
-    &.masonry-layout_description__chestnut-rose {
-      background-color: $chestnut-rose;
-    }
-  }
 }
 
 

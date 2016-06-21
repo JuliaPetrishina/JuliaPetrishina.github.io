@@ -1,24 +1,25 @@
 @import '../utils/variables';
 @import '../utils/mixins';
 
-.works-page{
+.layout-works-page{
   background-color: #efefef;
 
-  .wrap{
+  .layout-wrap{
     padding-top:50px;
   }
 
-  .headers-block{
+  .block-hgroup{
     @include center-inline-block();
     margin: 50px 0;
     width: 100%;
 
-    h1, h2{
+    .block-hgroup-h1,
+    .block-hgroup-h2{
       text-transform: uppercase;
       font-weight:400;
     }
 
-    h3{
+    .block-hgroup-h3{
       font-weight:400;
     }
   }

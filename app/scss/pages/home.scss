@@ -1,7 +1,7 @@
 @import "../utils/mixins";
 
-.home-page {
-  background: $main-color url("../images/home-cover.jpeg") center center no-repeat fixed; // ToDo resolve urls
+.layout-home-page {
+  background: $main-color url("../../images/home-cover.jpeg") center center no-repeat fixed; // ToDo resolve urls
   background-size: contain;
   width: 100%;
   max-width: 100%;
@@ -10,15 +10,11 @@
   color: $font-second-color;
 }
 
-.hgroup {
-  @include center-inline;
+.block-hgroup-h1{
+  font-weight: 400;
+  padding-top: 20px;
+}
 
-  h1{
-    font-weight: 400;
-    padding-top: 20px;
-  }
-
-  h2{
-    font-weight: 300;
-  }
+.block-hgroup-h2{
+  font-weight: 300;
 }

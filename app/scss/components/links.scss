@@ -4,15 +4,8 @@
 .block-links{
   @include absolute(bottom 1em right 1em);
 
-  .block-links_item{
-    text-decoration: none;
-  }
-
-  .block-links_icon{
-    margin-right: 0.25em;
-  }
-
   &.block-links__white{
+    
     .block-links_item{
       color: $font-second-color;
 
@@ -22,3 +15,12 @@
     }
   }
 }
+
+.block-links_item{
+  text-decoration: none;
+}
+
+.block-links_icon{
+  margin-right: 0.25em;
+}
+

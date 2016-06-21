@@ -58,7 +58,6 @@ setInterval(function(){
     else if(state.counter === 1){
         var nextStep = nextSteps[state.action];
         state.action = nextStep.state;
-        console.log(nextStep.state);
         state.counter = nextStep.dur;
 
     }

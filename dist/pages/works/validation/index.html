@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="css/styles.min.css">
+
+</head>
+<body>
+
+<form id="myForm">
+    <div class="form-group">
+        <label for="exampleName">Name</label>
+        <input type="text" data-name="name" class="form-control" id="exampleName" placeholder="Name">
+        <div class="error-msg" data-error="name"></div>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" data-name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        <div class="error-msg" data-error="email"></div>
+
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="text" data-name='password' class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <div class="error-msg" data-error="password"></div>
+
+    </div>
+
+    <button type="submit" class="btn-submit btn btn-default">Submit</button>
+</form>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

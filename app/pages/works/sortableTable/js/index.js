@@ -3,7 +3,7 @@
 
     var deleteBtn = document.querySelector('.btn-del');
     var table = document.querySelector('.table');
-    var ths = table.querySelectorAll('thead th');
+    var headerCells = table.querySelectorAll('thead th');
 
     function selectRow(event) {
         var element = event.target;
@@ -56,15 +56,16 @@
     function getData(elements) {
         var data = [];
 
-        [].forEach.call(elements, function (el) {
+        Array.prototype.forEach.call(elements, function (el) {
             data.push(el.innerHTML);
         });
 
         data.sort(function (a, b) {
-            var nameA = a.toLowerCase(), nameB = b.toLowerCase();
-            if (nameA < nameB)
+            var first = a.toLowerCase(), 
+                second = b.toLowerCase();
+            if (first < second)
                 return -1;
-            if (nameA > nameB)
+            if (first > second)
                 return 1;
             return 0;
         });
@@ -76,8 +77,9 @@
         var el = event.target;
         var index;
 
-        [].forEach.call(ths, function (th, i) {
-            if (el === th) {
+        Array.prototype.forEach.call(headerCells, function (item, i) {
+            var input = item.querySelector('.input-filter');
+            if (el === item || el === input) {
                 index = i;
             }
         });
@@ -85,33 +87,23 @@
         return index;
     }
 
-    function sort(event) {
+    function sortTable(event) {
         var i = getIndex(event) + 1;
-        var tds = table.querySelectorAll('tr td:nth-child(' + i + ')');
-        var names = getData(tds);
+        var cells = table.querySelectorAll('tr td:nth-child(' + i + ')');
+        var names = getData(cells);
 
-        [].forEach.call(ths, function (th) {
+        Array.prototype.forEach.call(headerCells, function (th) {
             if (th.classList.contains('up-order')) {
                 names.reverse();
             }
         });
-
+        
         names.forEach(function (name, i) {
-            tds[i].innerHTML = name;
+            cells[i].innerHTML = name;
         });
     };
-
-    function sortUp() {
-        var i = getIndex() + 1;
-        console.log(i);
-        var tds = table.querySelectorAll('tr td:nth-child(' + i + ')');
-        var names = getData(tds).reverse();
-        names.forEach(function (name, i) {
-            tds[i].innerHTML = name;
-        })
-    };
-
-    document.querySelector('body').addEventListener('change', function (event) {
+    
+    table.addEventListener('change', function (event) {
         var element = event.target;
         if (element.classList.contains('checkbox')) {
             selectRow(event);
@@ -120,31 +112,31 @@
 
     deleteBtn.addEventListener('click', deleteRow);
 
-    document.querySelector('body').addEventListener('dblclick', function (event) {
+    table.addEventListener('dblclick', function (event) {
         var element = event.target;
         if (element.tagName.toLowerCase() === 'td') {
             editRow(event);
         }
     });
 
-    document.querySelector('body').addEventListener('click', function (event) {
+    table.addEventListener('click', function (event) {
         var element = event.target;
         if (element.classList.contains('btn-save')) {
             editRowDone();
         }
     });
 
-    document.querySelector('body').addEventListener('click', function (event) {
+    table.addEventListener('click', function (event) {
         var element = event.target;
         if (element.tagName === 'TH') {
             if (element.classList.contains('down-order')) {
                 element.classList.remove('down-order');
                 element.classList.add('up-order');
-                sort(event);
+                sortTable(event);
             } else {
                 element.classList.add('down-order');
                 element.classList.remove('up-order');
-                sort(event);
+                sortTable(event);
             }
         }
     });

@@ -108,37 +108,36 @@
                 cells[i].innerHTML = name;
             });
         },
-
+        
         filterData: function (event) {
             var index = this.getIndex(event) + 1,
                 cells = this.table.querySelectorAll('tr td:nth-child(' + index + ')'),
                 names = this.getData(cells),
                 input = event.target,
                 value = input.value,
-                valueLength = value.length,
-                filteredNames = [],
-                unFilteredNames = [];
+                valueLength = value.length;
 
             for (var i = 0; i < names.length; i++) {
                 var name = names[i];
-
-                if (name.substring(value, valueLength) !== value || value === '') {
-                    unFilteredNames.push(name);
-                    unFilteredNames.forEach(function (item, ind) {
-                        cells[ind].style.opacity = '0'
-                    });
-                    filteredNames.forEach(function (item, ind) {
-                        cells[ind].style.opacity = '1'
-                    });
-                } else {
-                    filteredNames.push(name);
-                    filteredNames.forEach(function (item, ind) {
-                        cells[ind].style.opacity = '0'
-                    });
-                    unFilteredNames.forEach(function (item, ind) {
-                        cells[ind].style.opacity = '1'
+                if (name.substring(0, valueLength) === value) {
+                    cells.forEach(function (cell) {
+                        if(name.toLowerCase() === cell.textContent.toLowerCase()) {
+                            cell.style.opacity = '1';
+                        }
                     });
                 }
+                else if (name.substring(0, valueLength) !== value){
+                    cells.forEach(function (cell) {
+                        if(name.toLowerCase() === cell.textContent.toLowerCase()) {
+                            cell.style.opacity = '0';
+                        }
+                    });
+                }
+                else if (value === ''){
+                    names.forEach(function (item, ind) {                        
+                        cells[ind].style.opacity = '1';                                          
+                    });
+                }              
             }
         }
     };

@@ -1,0 +1,10 @@
+.wrapper {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.up-order .caret {
+    border-top: none;
+    border-bottom: 4px dashed;
+    border-bottom: 4px solid;
+}

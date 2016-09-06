@@ -1,71 +1,109 @@
 'use strict';
 
 var welcome = require('./welcome');
-
 welcome('home');
 var $ = require("jquery");
 
 //feed to parse
-var FEED = "http://k.img.com.ua/rss/ua/news.xml";
-$.ajax(FEED, {
-    accepts: {
-        xml: "application/rss+xml"
-    },
-    type: 'GET',
-    crossDomain: true,
-    dataType: "xml",
-    success: init
-});
+var rssNews = "http://k.img.com.ua/rss/ua/news.xml";
+var rssSport = "http://k.img.com.ua/rss/ua/sport.xml";
+var rssWorld = "http://k.img.com.ua/rss/ua/world.xml";
+var xml;
 
-function init(data) {
-    showDescription(data);
-    getCategory(data);
+function getRss(rss) {
+    
+    $.ajax(rss, {
+        accepts: {
+            xml: "application/rss+xml"
+        },
+        type: 'GET',
+        crossDomain: true,
+        dataType: "xml",
+        success:  function(data) {
+            init(data);
+        }
+        // success: showDescription
+    });
+    
 }
 
-function showDescription (data) {
-    $(data).find("item").each(function () {
-        var el = $(this);
-        $('.col-xs-10').append(
-            '<div class="col-xs-4">' +
-                '<div class="image">' + el.find('image').text() + '</div>' +
-                '<div class="title">' + el.find('title').text() + '</div>' +
-            '</div>');
+function init(data){
+    xml = data;
+    showDescription(xml);
+};
+
+function getNewsId(currentItem) {
+    var id = currentItem.querySelector('guid').textContent;
+    return id;  
+}
+
+function showDescription(data) {
+    var items = data.querySelectorAll("item");
+    document.querySelector('.col-xs-10').innerHTML = '';
+    Array.prototype.forEach.call(items, function (item) {
+        var id = getNewsId(item),
+            imageEl = item.querySelector('image').textContent,
+            titleEl = item.querySelector('title').textContent,
+            column = document.createElement('div');
+        column.setAttribute('data-id', id);
+        column.classList = 'col-xs-4 column';
+        column.innerHTML = '<div class="image">' + imageEl + '</div>' + '<div class="title">' + titleEl + '</div>' + '<a href="#' + id + '" class="details-link">Details</a>';
+        document.querySelector('.col-xs-10').appendChild(column);
     });    
-}
+};
 
-function getCategory (data) {
-    $(data).find("item").each(function () {
-        var el = $(this);
-        var categoryHasSportNews = el.find("category[domain*='/sport/']");
-        var categoryHasWorldNews = el.find("category[domain*='/world/']");
-        var category = el.find("category[domain*='/world/']");
-       
-        var domain = category.attr('domain');
-        var domainSport = categoryHasSportNews.attr('domain');
-        var domainWorld = categoryHasWorldNews.attr('domain');
-
-        $('.select').change(function () {
-            var optionSelected = $(this).find("option:selected");
-            var valueSelected  = optionSelected.val();
-            
-            if(valueSelected === 'sport' && domainSport !== undefined) {
-                console.log(domainSport);
-                console.log(el.find('category[domain="' + domainSport + '"]'));
-            }
-            else if (valueSelected === 'world' && domainWorld !== undefined){
-                var currentEl = el.find('category[domain="' + domainWorld + '"]');
-                var currentItem = currentEl.closest('item');
-                $('.col-xs-10').replaceWith(
-                    '<div class="col-xs-4">' +
-                        '<div class="image">' + currentItem.find('image').text() + 'lhjfybg;ilaefbglahfbvgldsujhflfyhv' + '</div>' +
-                        '<div class="title">' + currentItem.find('title').text() + '</div>' +
-                    '</div>');
-                console.log(currentItem);
-            }
-        });
-
+function showDetails(data, el) {
+    var items = data.querySelectorAll("item");
+    
+    Array.prototype.forEach.call(items, function (item) {
+        var column = el.parentNode;
+        var columnId = column.getAttribute('data-id');
+        console.log(columnId);
+        var id = getNewsId(item),
+            newsDetails = item.querySelector('fulltext').textContent,
+            imageEl = item.querySelector('image').textContent,
+            titleEl = item.querySelector('title').textContent;
+     
+        if(id === columnId) {
+            document.querySelector('.row').innerHTML = '';
+            document.querySelector('.row').innerHTML = '<div class="image">' + imageEl + '</div>' + '<div class="title">' + titleEl + '</div>' + '<div class="news-details">' + newsDetails + '</div>';
+        }        
     });
 }
+
+document.addEventListener('change', function (event) {
+    var element = event.target;
+    if (element.classList.contains('select') && element.value === 'all') {
+        getRss(rssNews);
+    }
+    else if (element.classList.contains('select') && element.value === 'world') {
+        getRss(rssWorld);
+    }
+    else if (element.classList.contains('select') && element.value === 'sport') {
+        getRss(rssSport);
+    }
+});
+document.addEventListener('click', function (event) {
+    var element = event.target;
+   
+    if (element.classList.contains('details-link')) {
+        getRss(rssNews);
+        showDetails(xml, element);
+    }
+});
+
+
+window.onload = function () {
+    getRss(rssNews);
+};
+
+
+window.onhashchange = function() {
+    getRss(rssNews);
+};
+
+
+
 
 
 

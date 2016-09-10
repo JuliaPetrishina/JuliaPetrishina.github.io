@@ -63,6 +63,7 @@ module.exports = function (jQ) {
                 document.querySelector('.row').innerHTML = '';
                 document.querySelector('.row').innerHTML =
                     '<div class="col-xs-12">' +
+                        '<a href="index.html">Back</a>' +
                         '<div class="image">' + imageEl + '</div>' +
                         '<div class="title">' + titleEl + '</div>' +
                         '<div class="news-details">' + newsDetails + '</div>' +

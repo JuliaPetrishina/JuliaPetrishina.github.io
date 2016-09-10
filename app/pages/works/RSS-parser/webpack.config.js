@@ -1,5 +1,4 @@
 module.exports = {
-  // context: __dirname + "/app",
   devtool: 'inline-source-map',
   entry: "./js/index",
   output: {
@@ -10,6 +9,18 @@ module.exports = {
     alias: {
       jquery: "jquery/src/jquery"
     }
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.css$/,
+        loader: 'style!css?modules',
+      },
+      {
+        test: /\.html$/,
+        loader: 'raw',
+      },
+    ]
   },
   watch: true
 };

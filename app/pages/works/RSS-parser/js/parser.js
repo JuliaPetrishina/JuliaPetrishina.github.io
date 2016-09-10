@@ -95,7 +95,6 @@ module.exports = function (jQ) {
         }
     });
 
-
     window.onload = function () {
         getRss(rssNews);
     };

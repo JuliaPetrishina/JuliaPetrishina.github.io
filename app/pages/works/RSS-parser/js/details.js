@@ -9,6 +9,7 @@ module.exports = {
         var items = data.querySelectorAll("item");
         Array.prototype.forEach.call(items, function (item) {
             var column = el.parentNode;
+            console.log(column);
             var columnId = column.getAttribute('data-id');
             var id = identifier.getNewsId(item),
                 newsDetails = item.querySelector('fulltext').textContent,
@@ -16,13 +17,13 @@ module.exports = {
                 titleEl = item.querySelector('title').textContent;
 
             if (id === columnId) {
-                document.querySelector('.row').innerHTML = '';
+                window.location.href = "details.html";
                 document.querySelector('.row').innerHTML =
                     '<div class="col-xs-12">' +
-                    '<a href="index.html">Back</a>' +
-                    '<div class="image">' + imageEl + '</div>' +
-                    '<div class="title">' + titleEl + '</div>' +
-                    '<div class="news-details">' + newsDetails + '</div>' +
+                        '<a href="index.html">Back</a>' +
+                        '<div class="image">' + imageEl + '</div>' +
+                        '<div class="title">' + titleEl + '</div>' +
+                        '<div class="news-details">' + newsDetails + '</div>' +
                     '</div>';
             }
         });

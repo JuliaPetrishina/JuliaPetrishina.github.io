@@ -2,7 +2,7 @@ var $ = require("jquery");
 
 module.exports = {
 
-    // function gets the rss at a particular url
+    // Function gets the rss at a particular url
     getRss: function (url) {        
         var xml = $.ajax(url, {
             accepts: {

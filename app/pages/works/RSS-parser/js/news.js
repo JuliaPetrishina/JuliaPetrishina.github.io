@@ -15,7 +15,7 @@ module.exports = {
                 column = document.createElement('div');
             column.setAttribute('data-id', id);
             column.classList = 'col-xs-4 column';
-            column.innerHTML = '<div class="image">' + imageEl + '</div>' + '<div class="title">' + titleEl + '</div>' + '<a href="#' + id + '" class="details-link">Details</a>';
+            column.innerHTML = '<div class="image">' + imageEl + '</div>' + '<div class="title">' + titleEl + '</div>' + '<a href="details.html" class="details-link">Details</a>';
             document.querySelector('.col-xs-10').appendChild(column);
         });
     }

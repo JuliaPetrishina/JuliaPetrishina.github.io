@@ -27,16 +27,17 @@ document.addEventListener('change', function (event) {
     }
 });
 
-// eventListener on link "Details" listens of which news details want to see user and renders it on the page
+// EventListener on link "Details" listens of which news details want to see user and renders it on the page
 // ---------------------------------------------------------------------------------------------------------
 document.addEventListener('click', function (event) {
+   
     var element = event.target;
-
+    
     if (element.classList.contains('details-link')) {
+        event.preventDefault();        
         details.showDetails(xmlNews, element);
     }
 });
-
 
 window.onload = function () {
     news.showDescription(xmlNews);
